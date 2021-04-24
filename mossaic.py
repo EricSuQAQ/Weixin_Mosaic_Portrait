@@ -20,7 +20,7 @@ def wechatLogin():
         path = os.path.join(base_folder, '{}.jpg'.format(item['NickName'].replace('/', '')))
         with open(path, 'wb') as f:
             f.write(img)
-        print('{} input successful...'.format(item['NickName']))
+        #print('{} input successful...'.format(item['NickName']))
 
 #以上是微信导入头像步骤，现在头像已经全部保存在同根目录文件夹“wechat”之下
 
@@ -89,11 +89,11 @@ def masaic(target):
             candidate = colorSimilarity(imageLib,boxMean) # 我们在库中得到了与方框颜色相似的图像候选数据.
             best = structureSimilarity(weightsLib,candidate,box.copy()) # 在候选中，选取最与图像结构形式的头像.
             pictureArray[j * 40:(j + 1) * 40, i * 40:(i + 1) * 40] = imageLib[best] #将该头像纳入大图位置中.
-        print("still working...already finish: ", int(i*100/int(newWidth/40)), "%")
+        #print("still working...already finish: ", int(i*100/int(newWidth/40)), "%")
     newIm = PIL.Image.fromarray(pictureArray)
     newIm.show()
     newIm.save('mosaic.jpg') #大图已经被保存至mosaic.jpg
-    print("Over, the mosaic image save in the path where target in named 'mosaic.jpg'.")
+    #print("Over, the mosaic image save in the path where target in named 'mosaic.jpg'.")
     return None
 
 #第一次筛选时，颜色相似度前10名将晋级至到第二次筛选。
@@ -179,7 +179,5 @@ def createWindows():
 
 if __name__ == '__main__':
     createWindows()
-    #buildLib()
-    #masaic('skadi.jpg')
     os.system('pause')
 
